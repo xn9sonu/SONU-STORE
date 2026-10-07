@@ -106,6 +106,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
+   * Format account price based on active language
+   */
+  function formatAccountPrice(account, lang = state.currentLang) {
+    if (!account) return '';
+    if (lang === 'id') {
+      return account.priceIDR || ('Rp ' + Math.round((account.priceNum || 0) * 190).toLocaleString('id-ID'));
+    }
+    return account.price || ('₹' + (account.priceNum ? account.priceNum.toLocaleString('en-IN') : '0'));
+  }
+
+  /**
    * Render Account Cards (ONE REUSABLE COMPONENT)
    */
   function renderAccounts() {
@@ -183,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="account-code-number">ACCOUNT #${account.code}</span>
               </div>
               <div class="account-price-tag">
-                ${account.price}
+                ${formatAccountPrice(account, state.currentLang)}
               </div>
             </div>
 
@@ -237,11 +248,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${t('btnViewDetails', 'View Details')}
               </button>
               
-              <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" title="Contact on WhatsApp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" aria-label="WhatsApp us" title="Contact on WhatsApp">
+                <svg class="icon-wa" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
                 </svg>
-                WhatsApp
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
@@ -351,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update Modal Header
     if (modalTitle) {
-      modalTitle.innerHTML = `SONU FF STORE &mdash; <span>ACCOUNT #${account.code}</span>`;
+      modalTitle.innerHTML = `ACCOUNT #${account.code}`;
     }
 
     // Render Specs Section
@@ -363,47 +374,76 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="badge-tag badge-verified">${t("cardVerifiedBadge", "VERIFIED")}</span>
           </div>
           
-          <div class="modal-specs-table">
-            <div class="spec-row">
-              <span class="spec-row-name">${t('filterServerLabel', 'Server')}</span>
-              <span class="spec-row-value highlight-gold">${account.server}</span>
+          <div class="modal-specs-grid">
+            <div class="spec-card">
+              <div class="spec-card-icon">🌐</div>
+              <div class="spec-card-content">
+                <span class="spec-card-label">${t('filterServerLabel', 'Server')}</span>
+                <span class="spec-card-value highlight-gold">${account.server}</span>
+              </div>
             </div>
-            <div class="spec-row">
-              <span class="spec-row-name">UID</span>
-              <span class="spec-row-value uid-interactive" onclick="copyToClipboard('${account.uid}', 'UID')">
-                ${account.uid}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-              </span>
+
+            <div class="spec-card uid-card" onclick="copyToClipboard('${account.uid}', 'UID')" title="Click to copy UID">
+              <div class="spec-card-icon">🆔</div>
+              <div class="spec-card-content">
+                <span class="spec-card-label">UID <span class="copy-subhint">(Tap to Copy)</span></span>
+                <span class="spec-card-value uid-interactive">
+                  ${account.uid}
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </span>
+              </div>
             </div>
-            <div class="spec-row">
-              <span class="spec-row-name">${t('cardPrimeLevel', 'Prime Level')}</span>
-              <span class="spec-row-value highlight-gold">Level ${account.primeLevel}</span>
+
+            <div class="spec-card">
+              <div class="spec-card-icon">⭐</div>
+              <div class="spec-card-content">
+                <span class="spec-card-label">${t('cardPrimeLevel', 'Prime Level')}</span>
+                <span class="spec-card-value highlight-gold">Level ${account.primeLevel}</span>
+              </div>
             </div>
-            <div class="spec-row">
-              <span class="spec-row-name">${t('cardAccountAge', 'Account Age')}</span>
-              <span class="spec-row-value">${account.accountAge}</span>
+
+            <div class="spec-card">
+              <div class="spec-card-icon">🔫</div>
+              <div class="spec-card-content">
+                <span class="spec-card-label">${t('cardEvoGuns', 'Evo Guns')}</span>
+                <span class="spec-card-value highlight-gold">${account.evoGuns} Max</span>
+              </div>
             </div>
-            <div class="spec-row">
-              <span class="spec-row-name">${t('cardAccountLevel', 'Account Level')}</span>
-              <span class="spec-row-value">Level ${account.level}</span>
+
+            <div class="spec-card">
+              <div class="spec-card-icon">🏆</div>
+              <div class="spec-card-content">
+                <span class="spec-card-label">${t('cardAccountLevel', 'Account Level')}</span>
+                <span class="spec-card-value">Level ${account.level}</span>
+              </div>
             </div>
-            <div class="spec-row">
-              <span class="spec-row-name">${t('cardEvoGuns', 'Evo Guns')}</span>
-              <span class="spec-row-value highlight-gold">${account.evoGuns} Max/Upgraded</span>
+
+            <div class="spec-card">
+              <div class="spec-card-icon">📅</div>
+              <div class="spec-card-content">
+                <span class="spec-card-label">${t('cardAccountAge', 'Account Age')}</span>
+                <span class="spec-card-value">${account.accountAge}</span>
+              </div>
             </div>
-            <div class="spec-row price-highlight-row">
-              <span class="spec-row-name">${t("filterPriceLabel", "Price")}</span>
-              <span class="spec-row-value modal-price">${account.price}</span>
+          </div>
+
+          <!-- Prominent Price Banner Card -->
+          <div class="modal-price-card">
+            <div class="modal-price-info">
+              <span class="modal-price-label">${t("filterPriceLabel", "Price")}</span>
+              <span class="modal-price-value">${formatAccountPrice(account, state.currentLang)}</span>
+            </div>
+            <div class="modal-price-badge">
+              <span class="badge-tag badge-verified">⚡ ${t('cardDeliveryBadge', 'Instant Delivery')}</span>
             </div>
           </div>
 
           <!-- Badges & Verification Notice -->
           <div class="modal-badges-group">
             <span class="badge-tag badge-serious">${t('cardSeriousBadge', '⚡ Serious Buyers Only')}</span>
-            <span class="badge-tag badge-verified">${t('cardDeliveryBadge', '✅ Instant Delivery')}</span>
             <span class="badge-tag badge-info">📸 ${account.images.length} ${t('screenshotsAvailable', 'Screenshots Available')}</span>
           </div>
 
@@ -418,11 +458,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalWhatsAppBtn) {
       const dynamicWaUrl = STORE_CONFIG.getWhatsAppUrl(account.code);
       modalWhatsAppBtn.href = dynamicWaUrl;
+      modalWhatsAppBtn.setAttribute('aria-label', 'WhatsApp us');
       modalWhatsAppBtn.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <svg class="icon-wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
           <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
         </svg>
-        <span>📩 ${t('btnContactModal', 'Contact on WhatsApp')} (Account #${account.code})</span>
+        <span>${t('btnContactModal', 'Contact on WhatsApp')} (Account #${account.code})</span>
       `;
     }
 
@@ -618,17 +659,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile Hamburger Toggle
   if (mobileMenuToggle && navLinks) {
-    mobileMenuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      mobileMenuToggle.classList.toggle('open');
+    function closeMobileMenu() {
+      navLinks.classList.remove('active');
+      mobileMenuToggle.classList.remove('open');
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenuToggle.setAttribute('aria-label', 'Open navigation');
+      document.body.classList.remove('menu-open');
+    }
+
+    mobileMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.toggle('active');
+      mobileMenuToggle.classList.toggle('open', isOpen);
+      mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+      document.body.classList.toggle('menu-open', isOpen);
     });
 
-    // Close mobile menu when a nav link is clicked
+    // Close mobile menu when a nav link or mobile action is clicked
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        mobileMenuToggle.classList.remove('open');
+        closeMobileMenu();
       });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        closeMobileMenu();
+      }
     });
   }
 
@@ -681,18 +747,14 @@ document.addEventListener('DOMContentLoaded', () => {
     state.currentLang = lang;
     localStorage.setItem('sonu_store_lang', lang);
 
-    // Update switcher buttons UI
-    const btnId = document.getElementById('langBtnId');
-    const btnEn = document.getElementById('langBtnEn');
-    if (btnId && btnEn) {
-      if (lang === 'id') {
-        btnId.classList.add('active');
-        btnEn.classList.remove('active');
+    // Update switcher buttons UI (supports all desktop and mobile instances)
+    document.querySelectorAll('.lang-btn[data-lang]').forEach(btn => {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
       } else {
-        btnEn.classList.add('active');
-        btnId.classList.remove('active');
+        btn.classList.remove('active');
       }
-    }
+    });
 
     // Update HTML lang attribute
     document.documentElement.lang = lang;
@@ -762,11 +824,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Language button event listeners
-  const btnId = document.getElementById('langBtnId');
-  const btnEn = document.getElementById('langBtnEn');
-  if (btnId) btnId.addEventListener('click', () => applyLanguage('id'));
-  if (btnEn) btnEn.addEventListener('click', () => applyLanguage('en'));
+  // Language button event listeners (all desktop and mobile instances)
+  document.querySelectorAll('.lang-btn[data-lang]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const lang = btn.getAttribute('data-lang');
+      if (lang) applyLanguage(lang);
+    });
+  });
 
   // Initial render with saved or default language
   applyLanguage(currentLang);

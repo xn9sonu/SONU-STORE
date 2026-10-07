@@ -18,6 +18,8 @@ const ACCOUNTS_DATA = [
     "evoGuns": 5,
     "price": "\u20b94,000",
     "priceNum": 4000,
+    "priceIDR": "Rp 760.000",
+    "priceNumIDR": 760000,
     "verified": true,
     "badges": [
       "Serious Buyers Only",
@@ -58,6 +60,8 @@ const ACCOUNTS_DATA = [
     "evoGuns": 4,
     "price": "\u20b93,000",
     "priceNum": 3000,
+    "priceIDR": "Rp 570.000",
+    "priceNumIDR": 570000,
     "verified": true,
     "badges": [
       "Serious Buyers Only",
@@ -97,6 +101,8 @@ const ACCOUNTS_DATA = [
     "evoGuns": 9,
     "price": "\u20b97,000",
     "priceNum": 7000,
+    "priceIDR": "Rp 1.330.000",
+    "priceNumIDR": 1330000,
     "verified": true,
     "badges": [
       "Serious Buyers Only",
@@ -137,6 +143,8 @@ const ACCOUNTS_DATA = [
     "evoGuns": 10,
     "price": "\u20b96,900",
     "priceNum": 6900,
+    "priceIDR": "Rp 1.300.000",
+    "priceNumIDR": 1300000,
     "verified": true,
     "badges": [
       "Serious Buyers Only",
@@ -179,6 +187,8 @@ const ACCOUNTS_DATA = [
     "evoGuns": 8,
     "price": "\u20b94,000",
     "priceNum": 4000,
+    "priceIDR": "Rp 760.000",
+    "priceNumIDR": 760000,
     "verified": true,
     "badges": [
       "Serious Buyers Only",
@@ -220,6 +230,8 @@ const ACCOUNTS_DATA = [
     "evoGuns": 7,
     "price": "\u20b98,000",
     "priceNum": 8000,
+    "priceIDR": "Rp 1.520.000",
+    "priceNumIDR": 1520000,
     "verified": true,
     "badges": [
       "Serious Buyers Only",

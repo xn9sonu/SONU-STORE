@@ -23,7 +23,8 @@
   <aside class="top-advisory-bar" aria-label="Store Advisory Banner">
     <div class="container top-advisory-inner">
       <span class="advisory-badge" data-i18n="storeBadge">OFFICIAL STORE</span>
-      <span class="advisory-text" data-i18n="topAdvisory">🔥 WELCOME TO SONU FF STORE — Premium Free Fire Accounts Collection • Direct WhatsApp Inquiries Available 24/7</span>
+      <span class="advisory-text desktop-advisory-text" data-i18n="topAdvisory">🔥 SONU FF STORE — Trusted &amp; Verified Free Fire Accounts</span>
+      <span class="advisory-text mobile-advisory-text" data-i18n="topAdvisoryMobile">🔥 SONU FF STORE • TRUSTED &amp; VERIFIED</span>
     </div>
   </aside>
 
@@ -40,42 +41,86 @@
           <span class="brand-name">SONU FF STORE</span>
           <span class="brand-sub" data-i18n="storeSubtitle">PREMIUM ACCOUNT STORE</span>
         </div>
-        <span class="brand-verified-badge">VERIFIED</span>
+        <span class="brand-verified-badge" data-i18n="cardVerifiedBadge">VERIFIED</span>
       </a>
 
-      <!-- Desktop Navigation Menu -->
+      <!-- Navigation Menu (Desktop in-bar, Mobile Drawer) -->
       <nav class="nav-links" id="navLinks">
         <a href="#home" class="nav-link active" data-i18n="navHome">Home</a>
         <a href="#accounts" class="nav-link" data-i18n="navAccounts">Accounts</a>
         <a href="#how-it-works" class="nav-link" data-i18n="navHowItWorks">How It Works</a>
         <a href="#contact" class="nav-link" data-i18n="navContact">Contact</a>
-        <a href="#disclaimer" class="nav-link" data-i18n="navDisclaimer">Disclaimer</a>
+        <a href="#disclaimer" class="nav-link" data-i18n="navDisclaimer">Safety & Guarantee</a>
+
+        <!-- Mobile Navigation Panel Drawer Extras (Hidden on Desktop) -->
+        <div class="mobile-nav-footer">
+          <div class="mobile-nav-divider"></div>
+          
+          <div class="mobile-nav-info-row">
+            <span class="mobile-verified-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              <span data-i18n="cardVerifiedBadge">VERIFIED STORE</span>
+            </span>
+
+            <!-- Mobile Drawer Language Switcher Capsule -->
+            <div class="lang-switch-capsule mobile-lang-switch" role="radiogroup" aria-label="Mobile Language Selector">
+              <button type="button" class="lang-btn" data-lang="id" aria-label="Bahasa Indonesia">
+                <svg class="flag-svg" width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="20" height="14" rx="2" fill="#FFFFFF"/>
+                  <path d="M0 0H20V7H0Z" fill="#EE2A35"/>
+                </svg>
+                <span class="lang-text">ID</span>
+              </button>
+              <button type="button" class="lang-btn active" data-lang="en" aria-label="English">
+                <svg class="flag-svg" width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="20" height="14" rx="2" fill="#FFFFFF"/>
+                  <rect width="20" height="4.67" rx="2" fill="#FF9933"/>
+                  <rect y="9.33" width="20" height="4.67" rx="2" fill="#138808"/>
+                  <circle cx="10" cy="7" r="2.1" fill="none" stroke="#000080" stroke-width="0.7"/>
+                  <circle cx="10" cy="7" r="0.45" fill="#000080"/>
+                </svg>
+                <span class="lang-text">EN</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile WhatsApp Button (Real WhatsApp Green Icon + White Text) -->
+          <a href="https://wa.me/917209168825" target="_blank" rel="noopener noreferrer" class="btn btn-mobile-wa" aria-label="WhatsApp us" title="Chat on WhatsApp">
+            <svg class="icon-wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            <span class="btn-text" data-i18n="btnWhatsAppUsDrawer">WHATSAPP US</span>
+          </a>
+        </div>
       </nav>
 
-      <!-- Right Header Action -->
+      <!-- Right Header Action (Visible on Both Desktop & Mobile) -->
       <div class="nav-actions">
         <!-- Language Switcher Capsule (ID / EN) -->
-                <!-- Language Switcher Capsule with Real SVG Flags (ID / EN) -->
-        <div class="lang-switch-capsule" id="langSwitcher" role="radiogroup" aria-label="Language Selector">
+        <div class="lang-switch-capsule" id="langSwitcher" role="radiogroup" aria-label="Change language">
           <button type="button" class="lang-btn" data-lang="id" id="langBtnId" aria-label="Bahasa Indonesia">
-            <svg class="flag-svg" width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
-  <rect width="20" height="14" rx="2" fill="#FFFFFF"/>
-  <path d="M0 0H20V7H0Z" fill="#EE2A35"/>
-</svg>
+            <svg class="flag-svg" width="18" height="12" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
+              <rect width="20" height="14" rx="2" fill="#FFFFFF"/>
+              <path d="M0 0H20V7H0Z" fill="#EE2A35"/>
+            </svg>
             <span class="lang-text">ID</span>
           </button>
           <button type="button" class="lang-btn active" data-lang="en" id="langBtnEn" aria-label="English">
-            <svg class="flag-svg" width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
-  <rect width="20" height="14" rx="2" fill="#FFFFFF"/>
-  <rect width="20" height="4.67" rx="2" fill="#FF9933"/>
-  <rect y="9.33" width="20" height="4.67" rx="2" fill="#138808"/>
-  <circle cx="10" cy="7" r="2.1" fill="none" stroke="#000080" stroke-width="0.7"/>
-  <circle cx="10" cy="7" r="0.45" fill="#000080"/>
-</svg>
+            <svg class="flag-svg" width="18" height="12" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
+              <rect width="20" height="14" rx="2" fill="#FFFFFF"/>
+              <rect width="20" height="4.67" rx="2" fill="#FF9933"/>
+              <rect y="9.33" width="20" height="4.67" rx="2" fill="#138808"/>
+              <circle cx="10" cy="7" r="2.1" fill="none" stroke="#000080" stroke-width="0.7"/>
+              <circle cx="10" cy="7" r="0.45" fill="#000080"/>
+            </svg>
             <span class="lang-text">EN</span>
           </button>
         </div>
-        <a href="https://wa.me/917209168825" target="_blank" rel="noopener noreferrer" class="btn btn-nav-gold" title="Chat on WhatsApp">
+
+        <!-- Desktop WhatsApp Button -->
+        <a href="https://wa.me/917209168825" target="_blank" rel="noopener noreferrer" class="btn btn-nav-wa" aria-label="WhatsApp us" title="Chat on WhatsApp">
           <svg class="icon-wa" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
           </svg>
@@ -83,7 +128,7 @@
         </a>
 
         <!-- Mobile Menu Toggle Button -->
-        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Open navigation" aria-expanded="false">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -99,34 +144,22 @@
     <div class="hero-grid-pattern"></div>
     
     <div class="container hero-container">
-      <div class="hero-content">
+      <div class="hero-content hero-content-banner">
         
-        <!-- Official Verified Tag -->
-        <div class="hero-badge-row">
-          <span class="hero-pill">
-            <span class="status-indicator"></span>
-            <span data-i18n="heroPill1">🔥 OFFICIAL STORE • PREMIUM ACCOUNTS</span>
-          </span>
-          <span class="hero-pill-secondary">
-            <span data-i18n="heroPill2">⚡ 100% VERIFIED LISTINGS</span>
-          </span>
-        </div>
+        <!-- Screen Reader & SEO Title -->
+        <h1 class="visually-hidden">SONU FF STORE - Premium Free Fire Accounts</h1>
 
-        <!-- Main Title -->
-        <h1 class="hero-title">
-          SONU <span class="gold-gradient-text">FF STORE</span>
-        </h1>
-        <h2 class="hero-subtitle" data-i18n="heroSubtitle">Premium Free Fire Accounts</h2>
-
-        <!-- Description -->
-        <p class="hero-description" data-i18n="heroDesc">Trusted and 100% safe place to buy Free Fire accounts. Browse our verified account collection, check details, view all screenshots and contact us on WhatsApp for fast purchase.</p>
-
-        <!-- Warning Callout Box -->
-        <div class="hero-warning-card hero-trust-card">
-          <div class="warning-icon">🛡️</div>
-          <div class="warning-content">
-            <strong data-i18n="heroWarningNotice">⚡ VERIFIED STORE:</strong>
-            <span data-i18n="heroWarningDesc">All account specifications, screenshots, and UIDs are 100% authentic and verified. Contact us directly on WhatsApp to inquire.</span>
+        <!-- Epic Hero Banner Image (Replacing First Pic Text Block with Second Pic) -->
+        <div class="hero-banner-container">
+          <div class="hero-banner-glow"></div>
+          <div class="hero-banner-frame">
+            <img src="images/sonu-ff-store-banner.jpg" 
+                 alt="SONU FF STORE — Premium Free Fire Accounts | 100% Safe &amp; Trusted, Instant Delivery, Verified Accounts, 24/7 WhatsApp Support" 
+                 class="hero-banner-img"
+                 width="1024" 
+                 height="341" 
+                 loading="eager" 
+                 fetchpriority="high">
           </div>
         </div>
 
@@ -138,8 +171,8 @@
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
-          <a href="https://wa.me/917209168825?text=Hello%20Sonu%20FF%20Store,%20I%20am%20interested%20in%20a%20Free%20Fire%20account." target="_blank" rel="noopener noreferrer" class="btn btn-hero-outline">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <a href="https://wa.me/917209168825?text=Hello%20Sonu%20FF%20Store,%20I%20am%20interested%20in%20a%20Free%20Fire%20account." target="_blank" rel="noopener noreferrer" class="btn btn-hero-outline" aria-label="WhatsApp us" title="Contact on WhatsApp">
+            <svg class="icon-wa" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
             </svg>
             <span>WhatsApp Us</span>
@@ -418,8 +451,10 @@
           <a href="https://wa.me/917209168825?text=Hello%20Sonu%20FF%20Store,%20I%20am%20interested%20in%20a%20Free%20Fire%20account." 
              target="_blank" 
              rel="noopener noreferrer" 
-             class="btn btn-hero-gold btn-large">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+             class="btn btn-contact-wa btn-large"
+             aria-label="WhatsApp us"
+             title="Message on WhatsApp">
+            <svg class="icon-wa" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
             </svg>
             <span data-i18n="btnMessageWhatsApp">Message on WhatsApp</span>
@@ -546,8 +581,11 @@
     <div class="modal-dialog">
       <!-- Modal Header -->
       <div class="modal-header">
-        <div class="modal-header-title" id="modalTitle">
-          SONU FF STORE &mdash; <span>ACCOUNT DETAILS</span>
+        <div class="modal-header-brand-wrap">
+          <span class="modal-brand-badge">SONU FF STORE</span>
+          <div class="modal-header-title" id="modalTitle">
+            ACCOUNT DETAILS
+          </div>
         </div>
         <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -594,8 +632,8 @@
             </div>
           </div>
 
-          <div class="gallery-touch-hint">
-            <span>💡 Swipe left/right on mobile or use arrow keys &bull; Click any thumbnail to switch image</span>
+          <div class="gallery-touch-hint" id="modalTouchHint">
+            <span data-i18n="modalSwipeHint">💡 Swipe left/right or tap thumbnails to view all screenshots</span>
           </div>
 
         </div>

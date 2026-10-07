@@ -10,7 +10,9 @@ const TRANSLATIONS = {
   en: {
     // Top Advisory
     storeBadge: "OFFICIAL STORE",
-    topAdvisory: "🔥 WELCOME TO SONU FF STORE — Trusted & 100% Safe Place to Buy Free Fire Accounts • Direct WhatsApp Support 24/7",
+    topAdvisory: "🔥 SONU FF STORE — Trusted & Verified Free Fire Accounts",
+    topAdvisoryMobile: "🔥 SONU FF STORE • TRUSTED & VERIFIED",
+    verifiedPillText: "VERIFIED",
     
     // Header
     storeSubtitle: "PREMIUM ACCOUNT STORE",
@@ -20,6 +22,7 @@ const TRANSLATIONS = {
     navContact: "Contact",
     navDisclaimer: "Safety & Guarantee",
     btnWhatsAppUs: "WhatsApp Us",
+    btnWhatsAppUsDrawer: "WHATSAPP US",
     
     // Hero
     heroPill1: "🔥 TRUSTED STORE • 100% SAFE",
@@ -136,7 +139,7 @@ const TRANSLATIONS = {
     
     // Modal
     modalSpecsTitle: "SPECIFICATIONS",
-    modalSwipeHint: "💡 Swipe left/right on mobile or use arrow keys • Click any thumbnail to switch image",
+    modalSwipeHint: "💡 Swipe left/right or tap thumbnails to view all screenshots",
     modalSafetyNotice: "🛡️ 100% Safe & Verified: Every listed account is verified before handover. Contact us on WhatsApp to proceed with purchase.",
     btnContactModal: "Buy on WhatsApp",
     screenshotsAvailable: "Screenshots Available",
@@ -152,7 +155,9 @@ const TRANSLATIONS = {
   id: {
     // Top Advisory
     storeBadge: "TOKO RESMI",
-    topAdvisory: "🔥 SELAMAT DATANG DI SONU FF STORE — Tempat Terpercaya & 100% Aman untuk Beli Akun Free Fire • Layanan WhatsApp 24/7",
+    topAdvisory: "🔥 SONU FF STORE — Akun Free Fire Terpercaya & Terverifikasi",
+    topAdvisoryMobile: "🔥 SONU FF STORE • TERPERCAYA & TERVERIFIKASI",
+    verifiedPillText: "TERVERIFIKASI",
     
     // Header
     storeSubtitle: "TOKO AKUN PREMIUM",
@@ -162,6 +167,7 @@ const TRANSLATIONS = {
     navContact: "Kontak",
     navDisclaimer: "Keamanan & Garansi",
     btnWhatsAppUs: "Hubungi WhatsApp",
+    btnWhatsAppUsDrawer: "HUBUNGI WHATSAPP",
     
     // Hero
     heroPill1: "🔥 TOKO TERPERCAYA • 100% AMAN",
@@ -193,9 +199,9 @@ const TRANSLATIONS = {
     filterPrime7: "Level 7 (Maks)",
     filterPriceLabel: "Rentang Harga",
     filterPriceAll: "Semua Harga",
-    filterPriceUnder3k: "Di Bawah ₹3.000",
-    filterPrice3k5k: "₹3.000 - ₹5.000",
-    filterPriceAbove5k: "Di Atas ₹5.000",
+    filterPriceUnder3k: "Di Bawah Rp 600.000",
+    filterPrice3k5k: "Rp 600.000 - Rp 1.000.000",
+    filterPriceAbove5k: "Di Atas Rp 1.000.000",
     filterEvoLabel: "Senjata Evo",
     filterEvoAll: "Semua Senjata Evo",
     filterEvo2: "2+ Senjata Evo",
@@ -278,7 +284,7 @@ const TRANSLATIONS = {
     
     // Modal
     modalSpecsTitle: "SPESIFIKASI",
-    modalSwipeHint: "💡 Geser ke kiri/kanan pada ponsel atau gunakan tombol panah • Klik thumbnail untuk mengganti gambar",
+    modalSwipeHint: "💡 Geser kiri/kanan atau ketuk thumbnail untuk melihat screenshot",
     modalSafetyNotice: "🛡️ 100% Aman & Terverifikasi: Setiap akun yang terdaftar telah diverifikasi sebelum serah terima. Hubungi kami di WhatsApp untuk melanjutkan pembelian.",
     btnContactModal: "Beli di WhatsApp",
     screenshotsAvailable: "Screenshot Tersedia",
